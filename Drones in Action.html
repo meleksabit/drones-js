@@ -128,6 +128,61 @@ document.write('<form> '
 }
 </script></center>
 <center><h2><a href="#begin">Начало</a></h2></center>
+<center><font color="white"><h4>Хареса ли Ви моят проект?</h4>
+<script>
+// Wait for DOM to load
+document.addEventListener("DOMContentLoaded", function(event) {
+
+  // Put the button into a variable
+  var e = document.getElementById("myForm");
+  
+  // Wait for user to click the button
+  e.addEventListener( "change", function() {
+  
+    // Put the selected value into a variable
+    var myColor = this.color.value;
+    
+    // The "If" statement. Only display the alert if "Да" was selected.
+    if (myColor == "Да") {
+    
+      // Output a message
+      document.getElementById("msg").innerHTML = "Благодаря Ви :)";
+        
+    }
+
+  }, false);
+
+// Put the button into a variable
+  var e = document.getElementById("myForm");
+  
+  // Wait for user to click the button
+  e.addEventListener( "change", function() {
+  
+    // Put the selected value into a variable
+    var myColor = this.color.value;
+    
+    // The "If" statement. Only display the alert if "Не" was selected.
+    if (myColor == "Не") {
+    
+      // Output a message
+      document.getElementById("msg").innerHTML = "Благодаря Ви :(";
+        
+    }
+  
+  }, false);
+});
+</script>
+
+<!-- Replace '{action page}' with your own action page to support non-JavaScript users -->
+<form id="myForm" name="myForm" action="{action page}">
+  <label>
+    <input type="radio" name="color" value="Да"> Да
+  </label>
+  <label>
+    <input type="radio" name="color" value="Не"> Не
+  </label>
+</form>
+<p id="msg"></p></font></center>
 </body>
 </head>
 </html>
