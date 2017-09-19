@@ -142,30 +142,16 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // Put the selected value into a variable
     var myColor = this.color.value;
     
-    // The "If" statement. Only display the alert if "Да" was selected.
-    if (myColor == "Да") {
+    // The "Switch" statement.
+    switch ( myColor ) {
     
-      // Output a message
-      document.getElementById("msg").innerHTML = "Благодаря Ви :)";
-        
-    }
+    case "Да":
+      alert("Благодаря Ви :)");
+      break;
 
-  }, false);
-
-// Put the button into a variable
-  var e = document.getElementById("myForm");
-  
-  // Wait for user to click the button
-  e.addEventListener( "change", function() {
-  
-    // Put the selected value into a variable
-    var myColor = this.color.value;
-    
-    // The "If" statement. Only display the alert if "Не" was selected.
-    if (myColor == "Не") {
-    
-      // Output a message
-      document.getElementById("msg").innerHTML = "Благодаря Ви :(";
+    case "Не":
+      alert(":(");
+      break;
         
     }
   
@@ -182,8 +168,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     <input type="radio" name="color" value="Не"> Не
   </label>
 </form>
-    
-<p id="msg"></p></font></center>
+</font></center>
 </body>
 </head>
 </html>
