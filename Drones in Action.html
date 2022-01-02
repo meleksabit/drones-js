@@ -2,25 +2,107 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>Дронове в действие</title>
+<title>Drones in action</title>
 <a name="begin">
 <SCRIPT LANGUAGE="JavaScript" TYPE="text/JavaScript">
-<!-- скриване от стари браузъри
+<!-- hide from old browsers
 
 function pageEvents(action){
 if(action=="ok")alert("WELCOME to My Project!")
 else alert("See you soon!");
 }
-// край на скриването -->
+// end hiding -->
 </SCRIPT>
 <body background="black-wallpaper-22.jpg" link="#00ff00" alink="#00ffff" vlink="#ff0000" onLoad="pageEvents('ok')" onUnload="pageEvents('out')">
 <center><img src="header.jpg"></center>
+<center><font color="white"><h3><script>  
+  var nVer = navigator.appVersion;
+    var nAgt = navigator.userAgent;
+    var browserName  = navigator.appName;
+    var fullVersion  = ''+parseFloat(navigator.appVersion); 
+    var majorVersion = parseInt(navigator.appVersion,10);
+    var nameOffset,verOffset,ix;
+    
+    // In Opera, the true version is after "Opera" or after "Version"
+    if ((verOffset=nAgt.indexOf("Opera"))!=-1) {
+     browserName = "Opera";
+     fullVersion = nAgt.substring(verOffset+6);
+     if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+       fullVersion = nAgt.substring(verOffset+8);
+    }
+    // In MSIE, the true version is after "MSIE" in userAgent
+    else if ((verOffset=nAgt.indexOf("MSIE"))!=-1) {
+     browserName = "Microsoft Internet Explorer";
+     fullVersion = nAgt.substring(verOffset+5);
+    }
+    // In Chrome, the true version is after "Chrome" 
+    else if ((verOffset=nAgt.indexOf("Chrome"))!=-1) {
+     browserName = "Chrome";
+     fullVersion = nAgt.substring(verOffset+7);
+    }
+    // In Safari, the true version is after "Safari" or after "Version" 
+    else if ((verOffset=nAgt.indexOf("Safari"))!=-1) {
+     browserName = "Safari";
+     fullVersion = nAgt.substring(verOffset+7);
+     if ((verOffset=nAgt.indexOf("Version"))!=-1) 
+       fullVersion = nAgt.substring(verOffset+8);
+    }
+    // In Firefox, the true version is after "Firefox" 
+    else if ((verOffset=nAgt.indexOf("Firefox"))!=-1) {
+     browserName = "Firefox";
+     fullVersion = nAgt.substring(verOffset+8);
+    }
+    // In most other browsers, "name/version" is at the end of userAgent 
+    else if ( (nameOffset=nAgt.lastIndexOf(' ')+1) < 
+              (verOffset=nAgt.lastIndexOf('/')) ) 
+    {
+     browserName = nAgt.substring(nameOffset,verOffset);
+     fullVersion = nAgt.substring(verOffset+1);
+     if (browserName.toLowerCase()==browserName.toUpperCase()) {
+      browserName = navigator.appName;
+     }
+    }
+    // trim the fullVersion string at semicolon/space if present
+    if ((ix=fullVersion.indexOf(";"))!=-1)
+       fullVersion=fullVersion.substring(0,ix);
+    if ((ix=fullVersion.indexOf(" "))!=-1)
+       fullVersion=fullVersion.substring(0,ix);
+    
+    majorVersion = parseInt(''+fullVersion,10);
+    if (isNaN(majorVersion)) {
+     fullVersion  = ''+parseFloat(navigator.appVersion); 
+     majorVersion = parseInt(navigator.appVersion,10);
+    }
+    
+    document.write(''
+     +'Browser name  = '+browserName+'<br>'
+     +'Full version  = '+fullVersion+'<br>'
+     +'Major version = '+majorVersion+'<br>'
+     +'navigator.appName = '+navigator.appName+'<br>'
+     +'navigator.userAgent = '+navigator.userAgent+'<br>'
+    )
+
+    // This script sets OSName variable as follows:
+    // "Windows"    for all versions of Windows
+    // "MacOS"      for all versions of Macintosh OS
+    // "Linux"      for all versions of Linux
+    // "UNIX"       for all other UNIX flavors 
+    // "Unknown OS" indicates failure to detect the OS
+    
+    var OSName="Unknown OS";
+    if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
+    if (navigator.appVersion.indexOf("Mac")!=-1) OSName="MacOS";
+    if (navigator.appVersion.indexOf("X11")!=-1) OSName="UNIX";
+    if (navigator.appVersion.indexOf("Linux")!=-1) OSName="Linux";
+    
+    document.write('Your OS: '+OSName);  
+
+</script></h3></font></center>
 <script src="http://www.clocklink.com/embed.js">
 </script>
 <center><script type="text/javascript" language="JavaScript">obj=new Object;obj.clockfile="world001-green.swf";obj.TimeZone="GMT0530";obj.width=480;obj.height=250;obj.wmode="transparent";showClock(obj);
 </script></center>
 <center><h3><font color="red"><p id="demo"></p></font></h3></center>
-
 <script>
 var day;
 switch (new Date().getDay()) {
@@ -49,73 +131,68 @@ switch (new Date().getDay()) {
 document.getElementById("demo").innerHTML = "Today is " + day;
 </script>
 <hr width=100% size=3 color="gray">
-<a name="I"><font color="pink"><center><h2>Какво представлява дронът?</h2></center></font>
-<font color="magenta"><h3>Дроновете представляват  безпилотни летателни апарати, които се управляват или дистанционно, или автономно и се използват за стотици мисии, при които малкия, незабележим размер е плюс. Дрон на английски означава търтей, безделник. Така наричат и безпилотните летателни апарати. Задвижват ги чрез дистанционно управление или по предварително зададен с помощта на GPS маршрут - апаратът може да е програмиран за самостоятелно изпълнение. Един дрон има една или няколко перки, разнообразието в размери е още по-голямо - събира се в дланта или е колкото автомобил. Това, което обединява всички, е, че имат много приложения.</h3></font>
+<a name="I"><font color="pink"><center><h2>What the Drone is?</h2></center></font>
+<font color="magenta"><h3>Drones are unmanned aerial vehicles that are controlled either remotely or autonomously and are used for hundreds of missions where the small, inconspicuous size is a plus. Drone in English means drone, loafer. This is also the name of unmanned aerial vehicles. They are driven by remote control or on a pre-set route with the help of GPS - the device can be programmed for self-execution. A drone has one or more fins, the variety of sizes is even greater - it fits in the palm of your hand or is as big as a car. What unites everyone is that they have many applications.</h3></font>
 <hr width=100% size=3 color="gray">
-<a name="II"><font color="pink"><center><h2>За какво се използва?</h2></center></font>
-<font color="magenta"><h3>Институтът за космически изследвания и технологии при БАН работи по изграждането на информационен комплекс за мониторинг на околната среда от въздуха. С апаратурата ще се осигуряват данни за оценка на състоянието на растителната покривка, почвата, засушаването.<br>
-Треньорският щаб на аржентинския Велес Сарсфийлд решил да започне да използва безпилотни летателни апарати, чрез които да следи как се подготвя всеки един от футболистите на тима. Наставникът Мигел Анхел Русо и неговите помощници наели специалист, който чрез дрон прави записи на заниманията и в последствие се извършва подборен разбор на отделните играчи. Само преди няколко седмици наставникът на Манчестър Юнайтед Луис Ван Гаал бе обзет от шпиономания, твърдейки че тренировките на тима му се следели именно от такъв летателен апарат.<br>
-Новата мания е завладяла и абитуриентите, които искат да заснемат бала си от високо. Цените на машинките започват от 170 лева и може да достигнат до 700 долара. Богати родители не жалят левчета.<br>
-Американската граница с Мексико се охранява с помощта на дронове.<br>
-Сирийската противовъздушна отбрана е свали турски безпилотен летателен апарат северно от град Алепо.<br>
-При аварията във Факушима се използваха дронове, които измерваха радиацията и наличието на други опасни вещества.<br>
-Дронове помагат на въздушния трафик.<br>
-САЩ използва подобни безпилотници, за да открива и елиминира терористи из целия свят. Тези безпилотни самолети се превърнаха в едно от най-мощните оръжия на Америка в борбата им срещу враговете.<br>
-В Япония с дронове наблюдават вулканичната дейност.<br>
-В САЩ с дронове се наблюдава живота на косатките в океана.<br>
-В Европа за първи път използват дронове за пренасяне на пратки и лекарства.<br>
-Ползват умните джаджи за всичко - шпионаж, театър, кино, доставка на пици.<br>
-Безкрайните възможности на дроновете влизат в употреба и на сцената. Използват ги при декора и в снимането на филми.<br>
-Дроновете улавят всички мигове от този важен ден за младоженците. Така децата им нямат усещане, че са изпуснали ценни мигове от церемонията, защото "всички ъгли за покрити", казват производителите.<br>
-Много служби в Европа се стремят към тези хитри, малки шпиони, за да им помагат при наблюдение и други подобни дейности. Дори ФБР ги ползва.<br>
-Известната верига DominoТs направо смая клиентите си, като пусна видео на дрон, разнасящ пици - още топли. Но какво би станало, ако всички пицарии наемат въпросните устройства - абсолютен трафик. От небето ще валят пици.<br>
-Земеделските производители имат трудна работа, но безпилотни самолети биха улеснили бита им. Дроновете могат да направят въздушни изследвания на културите - дали системите за напояване работят, как се развиват растенията им и дори дали някои от тях са болни или повредени.</h3></font>
+<a name="II"><font color="pink"><center><h2>What is it used for?</h2></center></font>
+<font color="magenta"><h3>The Institute for Space Research and Technology at the Bulgarian Academy of Sciences is working on the construction of an information complex for environmental monitoring from the air. The equipment will provide data for assessing the condition of vegetation, soil, drought.<br>
+The coaching staff of the Argentine Velez Sarsfield decided to start using unmanned aerial vehicles to monitor how each of the team's players prepares. Mentor Miguel Angel Rousseau and his assistants hired a specialist who used a drone to record the activities and then performed a selective analysis of the individual players. Just a few weeks ago, Manchester United coach Luis Van Gaal was obsessed with espionage, claiming that his team's training was monitored by such an aircraft.<br>Новата мания е завладяла и абитуриентите, които искат да заснемат бала си от високо. Цените на машинките започват от 170 лева и може да достигнат до 700 долара. Богати родители не жалят левчета.<br>
+The new mania has also conquered the high school graduates who want to shoot their prom from above. The prices of the typewriters start from 170 leva and can reach 700 dollars. Wealthy parents do not spare levs.<br>
+The US border with Mexico is guarded by drones.<br>
+Syrian air defenses have shot down a Turkish drone north of the city of Aleppo.<br>
+The Fakushima accident used drones to measure radiation and other hazardous substances.<br>
+Drones help air traffic.<br>
+The United States uses such drones to detect and eliminate terrorists around the world. These drones have become one of America's most powerful weapons in their fight against enemies.<br>
+In Japan, volcanic activity is monitored by drones.<br>
+In the United States, drones are used to watching killer whales in the ocean.<br>
+For the first time in Europe, drones are being used to transport shipments and medicines.<br>
+They use smart gadgets for everything - espionage, theater, cinema, pizza delivery.<br>
+The endless possibilities of drones come into use on stage. They are used in decor and in filming.<br>
+Drones capture all the moments of this important day for the newlyweds. Thus, their children do not feel that they have missed precious moments from the ceremony, because "all corners are covered", say the manufacturers.<br>
+Many services in Europe are turning to these cunning, little spies to help them with surveillance and other similar activities. Even the FBI uses them.<br>
+The famous Domino chain has amazed its customers by releasing a video of a drone delivering pizza - still hot. But what if all the pizzerias rent the devices in question - absolute traffic. Pizza will fall from the sky.<br>
+Farmers have a difficult job, but drones would make their lives easier. Drones can do aerial surveys of crops - whether irrigation systems work, how their plants grow, and even whether some of them are sick or damaged.</h3></font>
 <hr width=100% size=3 color="gray">
-<a name="III"><font color="pink"><center><h2>Видове дронове и приложението им</h2></center></font>
-<font color="magenta"><h3>Хитовите модели са:<br>
-<center><font color="cyan">"Гимбол"</font></center>
+<a name="III"><font color="pink"><center><h2>Different Types and their purpose</h2></center></font>
+<font color="magenta"><h3>The hit models are:<br>
+<center><font color="cyan">"Gimball"</font></center>
 <img src="Flyabiliy-Gimball-2.png" width="300" height="300">
-Дроновете днес са по-умни и по-стабилни от всякога. Но повечето не са създадени да маневрират в тесни пространства или около живи същества. Не така е с "Гимбол", който е именно за такива нужди. Той е конструиран от Flyability, екип от Швейцария - като въртящата се клетка около тялото му го предпазва от счупване, когато се натъкне на стени, или други препятствия. "Гимбол" е и много лек и не би навредил на човек дори при докосване. Може да се промушва в тунели или рухнали сгради.
-Толкова е впечатляващ, че спечели на авторите си милион долара безвъзмездна помощ от Обединените арабски емирства. Това се случи на състезанието в Дубай, където участваха 39 дрона, но "Гимбол" беше победителят. Тимът, който го е създал, ще продължи да разработва негови вариации - именно дронове са търсене и спасяване. Сайт на "Гимбол": <a href="http://www.flyability.com/product/" target="_blank">www.flyability.com</a><br><br>
-<center><font color="cyan">"Лили"</font></center>
+Drones today are smarter and more stable than ever. But most are not designed to maneuver in tight spaces or around living things. This is not the case with Gimbol, which is for such needs. It was constructed by Flyability, a team from Switzerland - as the rotating cage around its body protects it from breaking when it encounters walls or other obstacles. Gimbol is also very light and would not harm a person even when touched. It can penetrate tunnels or collapsed buildings. It is so impressive that it won its authors a million dollars in grants from the United Arab Emirates. This happened at the race in Dubai, where 39 drones took part, but Gimbol was the winner. The team that created it will continue to develop variations of it - drones are the search and rescue. Gimbol website: <a href="http://www.flyability.com/product/" target="_blank">www.flyability.com</a><br><br>
+<center><font color="cyan">"Lily"</font></center>
 <img src="LILY.jpg" width="300" height="200">
-Били ли сте някога на ръба на планината в уингсют - екипа на летящите като Батман хора? Да ви се е искало да има някой достатъчно луд, за да се присъеди към вас и да ви запише полета? Има реален отговор на тази ваша мечта. "Лили" е новият безпилотен самолет фотоапарат, който е проектиран да следва всяко ваше движение благодарение на GPS модул, който носите на китката си. Тя също е водоустойчива и се ползва от сърфити и други любители на водните спортове, за да увековечи техните подвизи. "Лили" струва около 500 долара. Сайт на "Лили":
+Have you ever been on the edge of a mountain in Wingsute - the team of people flying like Batman? Have you ever wanted someone crazy enough to join you and record your flight? There is a real answer to this dream of yours. "Lily" is the new drone camera that is designed to track your every move thanks to a GPS module that you carry on your wrist. It is also waterproof and is used by surfers and other water sports enthusiasts to perpetuate their exploits. "Lily" costs about $ 500. Lily's website:
 <a href="https://www.lily.camera" target="_blank">www.lily.camera</a><br><br>
-<center><font color="cyan">"Соло"</font></center><br>
+<center><font color="cyan">"Solo"</font></center><br>
 <img src="SOLO.jpg" width="600" height="200">
-Това не е нов безпилотен самолет-играчка за запълване на рафтовете в магазините за супер джаджи. Това е дрон, способен на невероятни подвизи в кинематографията, благодарение на всички видове високотехнологични екстри, опаковани в лъскава черна черупка, какъвто е външнитя му вид. Не само това - "Солото" е първият самолет, който предлага пълен контрол на настройките на GoPro фотоапарата по време на всеки полет. Това ви спестява необходимостта да го приземявате всеки път, когато искате да промените настройките. Има и режим за селфи, наричан "драматичен", който започва със снимки отблизо на лицето ви и леко се отдалечава, заснемайки като в екшън действията ви. Ако някога ви се е искало да паднете на колене и да крещите, а камерата да ви хваща насред зрелищен пейзаж, сега е вашият шанс да го сторите. Сайт за "Соло": <a href="https://3drobotics.com/solo-drone/" target="_blank">3drobotics.com/solo-drone</a><br><br></h3>
+This is not a new drone-toy to fill the shelves of super gadget stores. This is a drone capable of incredible feats in cinema, thanks to all kinds of high-tech extras, packed in a shiny black shell, as is its appearance. Not only that - the "Solo" is the first aircraft that offers full control of the settings of the GoPro camera during each flight. This saves you from having to land it every time you want to change settings. There's also a selfie mode called "dramatic", which starts with close-up photos of your face and moves away slightly, capturing your action-like actions. If you've ever wanted to get on your knees and scream and the camera catches you in the middle of a spectacular landscape, now's your chance to do so. Solo website: <a href="https://3drobotics.com/solo-drone/" target="_blank">3drobotics.com/solo-drone</a><br><br></h3>
 <hr width=100% size=3 color="gray">
-<a name="IV"><font color="pink"><center><h2>Любопитно</h2></center></font>
-<font color="magenta"><h3>Дроновете са опасна работа във всеки смисъл - летящото снимащо устройство нарани преди дни ръката на Енрике Иглесиас и се наложи да го оперират. Жега стана и заради подобна джаджа и около кмета на Пазарджик Тодор Попов. Репортери на bTV заснеха с дрон имението му за 1,5 млн. лева в село Паталеница. Не дай, Боже, като във фентъзитата да въстанат в битка машини срещу човечество.
-Но що е то дрон и има ли почва у нас? Дроновете не са само работен инструмент на папараците и филмовите екипи. Има ги и в модел за начинаещи, който струва около стотина долара. По-сложните безпилотни самолети започват с цени от 1000 долара. Те имат такива функции, че се превръщат в истински автономни устройства, които могат да взимат собствени решения.<br>
-Вероятно ще има 30 000 дрона в Щатите до 2020 година, твърди Washington Times.
-Според проучванията добре е индустрията да произвежда дроновете така, че да изглеждат по-приятелски настроени и забавни. Във Великобритания предлагат да ги боядисват в ярки цветове, за да не приличат на военни обекти и да стряскат, казва "Гардиън". Тъй както "Биг брадър" също би изглеждал по-привлекателен, ако е в розово, шегува се Slate.
-Смята се, че използването им ще повиши ефективността и на бреговата охрана. В САЩ от военноморските сили казват, че с тях ще хващат 70% повече бегълци и наркотрафиканти.
-Израел е най-големият износител на безпилотни летателни апарати в областта на отбраната. Държавната компания Aerospace Industries е продала дронове на повече от две дузини страни по целия свят.</h3></font>
+<a name="IV"><font color="pink"><center><h2>Curious</h2></center></font>
+<font color="magenta"><h3>Drones are dangerous work in every sense - the flying camera hurt Enrique Iglesias' hand a few days ago and they had to operate on it. It was hot because of a similar gadget around the mayor of Pazardzhik Todor Popov. Reporters from bTV filmed his mansion for BGN 1.5 million in the village of Patalenitsa with a drone. God forbid, as in fantasies, machines rise up in battle against humanity. But what is a drone and is there any soil in our country? Drones are not just a working tool for paparazzi and film crews. They are also available in a beginner model that costs about a hundred dollars. More sophisticated drones start at $ 1,000. They have such functions that they become truly autonomous devices that can make their own decisions.<br>
+    There will probably be 30,000 drones in the United States by 2020, according to the Washington Times. According to research, it is good for the industry to produce drones so that they look more friendly and fun. In Britain, they offer to paint them in bright colors so that they do not look like military objects and startle, says the Guardian. As "Big Brother" would also look more attractive if it was in pink, Slate jokes. It is believed that their use will increase the effectiveness of the Coast Guard. In the United States, the Navy says it will catch 70 percent more refugees and drug traffickers. Israel is the largest exporter of unmanned aerial vehicles in the field of defense. The state-owned company Aerospace Industries has sold drones to more than two dozen countries around the world.</h3></font>
 <center><table border="0" width=50%>
 <tr>
 <td>
-<h4><font color="white">Спиращо дъха видео със забележителностите на България от птичи поглед</h4></font>
+<h4><font color="white">Breathtaking video with the sights of Bulgaria from a bird's eye view</h4></font>
 <a>
-<a href="http://vbox7.com/play:e802377e83" target="_blank"><img src="images.jpeg" width="100" height="50">
+<a href="http://vbox7.com/play:e802377e83" target="_blank"><center><img src="images.jpeg" width="100" height="50"></center>
 </a>
 </td>
 <td>
-<h4><font color="white">Клипове за дронове в YouTube</h4></font>
+<h4><font color="white">YouTube drone videos</h4></font>
 <a>
 <a href="https://www.youtube.com/results?search_query=drone" target="_blank"><img src="youtubebutton.jpeg" width="100" height="50">
 </a>
 </td>
 <td>
-<h4><font color="white">Актуална класация на най-продаваните дронове</h4></font>
+<h4><font color="white">Ranking of the best-selling drones</h4></font>
 <a>
 <a href="http://myfirstdrone.com/tutorials/buying-guides/best-drones-for-sale/ "target="_blank"><img src="bw8.gif" width="100" height="50">
 </a>
 </td>
 <td>
-<h4><font color="white">е-магазин за дронове в България</h4></font>
+<h4><font color="white">e-shop for drones in Bulgaria</h4></font>
 <a>
-<a href="http://www.zigifly.com/magazin/kvadrokopteri-ufo-dron/"target="_blank"><img src="logo.png" width="100" height="50">
+<a href="http://www.zigifly.com/magazin/dron-dronove-s-kamera-promotsia/"target="_blank"><img src="logo.png" width="100" height="50">
 </a>
 </td>
 </tr>
@@ -127,8 +204,19 @@ document.write('<form> '
 + 'onClick="javascript:window.print()"> </form>');
 }
 </script></center>
-<center><h2><a href="#begin">Начало</a></h2></center>
-<center><font color="white"><h4>Хареса ли Ви моят проект?</h4>
+<p><center><script type="text/javascript" >  
+    function showcommentform() {  
+    var data="Name:<br><input type='text' name='name'><br>Comment:<br><textarea rows='5' cols='50'></textarea><br><input type='submit' value='comment'>";  
+    document.getElementById('mylocation').innerHTML=data;  
+     }  
+      
+    </script>  
+    <form name="myForm">  
+    <input type="button" style="height: 70px; background: yellow; font-family:cursive;" value="Comment" onclick="showcommentform()"> 
+    <div id="mylocation"></div>  
+    </form></center></p>
+<center><h2><a href="#begin">Home</a></h2></center>
+<center><font color="white"><h4>Did you like my project?</h4>
 <script>
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", function(event) {
@@ -145,11 +233,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
     // The "Switch" statement.
     switch ( myColor ) {
     
-    case "Да":
-      alert("Благодаря Ви :)");
+    case "Yes":
+      alert("Thank you :)");
       break;
 
-    case "Не":
+    case "No":
       alert(":(");
       break;
         
@@ -162,10 +250,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
 <!-- Replace '{action page}' with your own action page to support non-JavaScript users -->
 <form id="myForm" name="myForm" action="{action page}">
   <label>
-    <input type="radio" name="color" value="Да"> Да
+    <input type="radio" name="color" value="Yes"> Yes
   </label>
   <label>
-    <input type="radio" name="color" value="Не"> Не
+    <input type="radio" name="color" value="No"> No
   </label>
 </form>
 </font></center>
