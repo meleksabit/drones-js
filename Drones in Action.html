@@ -97,10 +97,47 @@ else alert("See you soon!");
     document.write('Your OS: '+OSName);  
 
 </script></h3></font></center>
-<script src="http://www.clocklink.com/embed.js">
-</script>
-<center><script type="text/javascript" language="JavaScript">obj=new Object;obj.clockfile="world001-green.swf";obj.TimeZone="GMT0530";obj.width=480;obj.height=250;obj.wmode="transparent";showClock(obj);
-</script></center>
+<!-- World Clock Section -->
+<a name="V"><font color="yellow"><center><h2>World Clock</h2></center></font>
+  <font color="white"><center>
+      <div id="world-clock" style="background: #333; padding: 15px; border-radius: 5px; width: 300px;">
+          <div id="new-york" style="margin: 10px 0; font-size: 1.1em;">New York: Loading...</div>
+          <div id="london" style="margin: 10px 0; font-size: 1.1em;">London: Loading...</div>
+          <div id="tokyo" style="margin: 10px 0; font-size: 1.1em;">Tokyo: Loading...</div>
+          <div id="sydney" style="margin: 10px 0; font-size: 1.1em;">Sydney: Loading...</div>
+      </div>
+  </center></font>
+  <script>
+      // World Clock Logic
+      const cities = [
+          { name: 'New York', timeZone: 'America/New_York' },
+          { name: 'London', timeZone: 'Europe/London' },
+          { name: 'Tokyo', timeZone: 'Asia/Tokyo' },
+          { name: 'Sydney', timeZone: 'Australia/Sydney' }
+      ];
+  
+      function updateWorldClock() {
+          cities.forEach(city => {
+              const timeElement = document.getElementById(city.name.toLowerCase().replace(' ', '-'));
+              const options = {
+                  timeZone: city.timeZone,
+                  hour: '2-digit',
+                  minute: '2-digit',
+                  second: '2-digit',
+                  hour12: true
+              };
+              const formatter = new Intl.DateTimeFormat('en-US', options);
+              const time = formatter.format(new Date());
+              timeElement.textContent = `${city.name}: ${time}`;
+          });
+      }
+  
+      // Run clock immediately and every second
+      updateWorldClock();
+      setInterval(updateWorldClock, 1000);
+  </script>
+  <hr width=100% size=3 color="gray">
+  <!-- End World Clock Section -->
 <center><h3><font color="red"><p id="demo"></p></font></h3></center>
 <script>
 var day;
